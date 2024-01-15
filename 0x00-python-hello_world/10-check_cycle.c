@@ -14,7 +14,7 @@ int check_cycle(listint_t *list)
 	if (!list || !list->next)
 		return (0);/*If the list is empty or has only one node, there's no cycle*/
 
-	while (fast != NULL && fast->next != NULL)
+	while (fast != NULL && fast != NULL && fast->next != NULL)
 	{
 		if (slow == fast)
 			return (1);
