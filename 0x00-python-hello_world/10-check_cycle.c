@@ -9,7 +9,7 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *slow = list;
-	listint_t *fast = list->next;
+	listint_t *fast = list;
 
 	if (!list || !list->next)
 		return (0);/*If the list is empty or has only one node, there's no cycle*/
