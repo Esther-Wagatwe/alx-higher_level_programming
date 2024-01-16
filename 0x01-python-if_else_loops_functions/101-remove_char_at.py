@@ -4,4 +4,4 @@ def remove_char_at(str, n):
         # If index is out of bounds, return the original string
         return (str)
     # Construct a new string excluding the character at index n
-    return(str[:n] + str[n + 1:])
+    return (str[:n] + str[n + 1:])
