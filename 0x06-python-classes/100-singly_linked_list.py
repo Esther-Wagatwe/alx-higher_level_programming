@@ -4,8 +4,12 @@
 
 
 class Node:
-    """Represent a node in a singly-linked list."""
+    """
+    Class that defines properties Node.
 
+    Attributes:
+        data: data field of node.
+    """
     def __init__(self, data, next_node=None):
         """Initialize a new Node.
 
@@ -40,8 +44,12 @@ class Node:
 
 
 class SinglyLinkedList:
-    """Represent a singly-linked list."""
+    """
+    Class that defines properties of SinglyLinkedList.
 
+    Attributes:
+       head: head of the SinglyLinkedList.
+    """
     def __init__(self):
         """Initalize a new SinglyLinkedList."""
         self.__head = None
@@ -75,6 +83,8 @@ class SinglyLinkedList:
         result = []
         current = self.__head
         while current is not None:
+            result.sort()
             result.append(str(current.data))
             current = current.next_node
+        result.sort(key=int)
         return ('\n'.join(result))
