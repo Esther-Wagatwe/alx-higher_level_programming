@@ -12,7 +12,6 @@ class Square:
         Args:
             size (int): The size of the square
         """
-
         self.size = size
 
     @property
@@ -34,4 +33,4 @@ class Square:
         Returns:
             int: The area of the square
         """
-        return self.__size ** 2
+        return (self.__size ** self.__size)
