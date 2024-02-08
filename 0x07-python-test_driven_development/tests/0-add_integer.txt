@@ -1,0 +1,108 @@
+This module defines an integer addition function ``add_integer(a, b=98)``
+
+::
+
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+::
+
+    >>> add_integer(0, 0)
+    0
+
+::
+
+    >>> add_integer(15, 0)
+    15
+
+::
+
+    >>> add_integer(3, -4)
+    -1
+
+The function works with floating point values.
+
+::
+
+    >>> add_integer(3.0, 5.0)
+    8
+
+The floats are casted into ints before addition.
+
+::
+
+    >>> add_integer(2.7, 0.2)
+    2
+
+Floating and non floating values can be combined.
+
+::
+
+    >>> add_integer(2.7, 3)
+    5
+
+The second argument is optional as it is 98 by default.
+
+::
+
+    >>> add_integer(2)
+    100
+
+Non-Numbers
+===========
+
+``add_integer()`` expects that both arguments are either integers or floats.
+If either argument is a non-integer and non-float, a TypeError is raised:
+
+::
+
+    >>> add_integer("hey", 3)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+::
+    >>> add_integer(3, "hey")
+    Traceback (most recent call last):
+    TypeError: b must be an integer
+ 
+ ::
+
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+If both arguments are non-integers and non-floats, a TypeError message is only
+printed for the first argument.
+
+::
+
+    >>> add_integer("hello", "Esther")
+    Traceback (most recent call last):
+    TypeError: a must be an integer
+
+The function will fail if infinity is provided.
+
+::
+
+    >>> add_integer(2, float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+::
+
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+The function will also fail with NaN numbers.
+
+::
+
+    >>> add_integer(2, float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+::
+
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
