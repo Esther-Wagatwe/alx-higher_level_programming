@@ -15,13 +15,19 @@ The arguments should be strings ie both ``last_name`` and ``first_name``.
     Traceback (most recent call last):
     TypeError: first_name must be a string
 
+::
+
     >>> say_my_name("Amy", 11)
     Traceback (most recent call last):
     TypeError: last_name must be a string
-    
+
+::
+
     >>> say_my_name(42)
     Traceback (most recent call last):
     TypeError: first_name must be a string
+
+::
 
     >>> say_my_name(None)
     Traceback (most recent call last):
