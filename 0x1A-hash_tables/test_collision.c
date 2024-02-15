@@ -7,9 +7,9 @@ void test_collision_scenarios(void)
     hash_table_t *ht;
     unsigned long int index;
 
-    ht = hash_table_create(1024);  // Choose an appropriate size for your hash table
+    ht = hash_table_create(1024);  /* Choose an appropriate size for your hash table */
 
-    // Test collisions
+    /* Test collisions */
     index = key_index((unsigned char *)"hetairas", ht->size);
     printf("Index for 'hetairas': %lu\n", index);
 
@@ -52,13 +52,10 @@ void test_collision_scenarios(void)
     index = key_index((unsigned char *)"vivency", ht->size);
     printf("vivency: %lu\n", index);
 
-    return (EXIT_SUCCESS);
-
 }
 
 int main(void)
 {
-    // Call your collision testing function
     test_collision_scenarios();
 
     return 0;
