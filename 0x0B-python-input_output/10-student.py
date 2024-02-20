@@ -24,9 +24,5 @@ class Student:
             for JSON serialization of an object
         """
         if (type(attrs) == list and all(type(elem) == str for elem in attrs)):
-            result = {}
-            for i in attrs:
-                if hasattr(self, i):
-                    result[i] = getattr(self, i)
-            return result
+            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
         return self.__dict__
