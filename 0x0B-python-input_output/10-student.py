@@ -22,6 +22,7 @@ class Student:
         Returns:
             the dictionary description with simple data structure.
         """
-        if (type(attrs) == list and all(type(elem) == str for elem in attrs)):
-            return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
-        return self.__dict__
+        if attrs is None:
+            return self.__dict__
+        else:
+            return {attr: getattr(self, attr) for attr in attrs if hasattr(self, attr)}
