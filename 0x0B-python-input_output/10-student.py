@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines class_to_json"""
+"""Defines class_to_json."""
 
 
 class Student:
@@ -20,8 +20,7 @@ class Student:
         """
         function that returns the dictionary description.
         Returns:
-            the dictionary description with simple data structure
-            for JSON serialization of an object
+            the dictionary description with simple data structure.
         """
         if (type(attrs) == list and all(type(elem) == str for elem in attrs)):
             return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
