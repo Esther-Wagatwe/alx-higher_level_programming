@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines to_json_string method."""
+"""Defines string_to_json_string method."""
 import json as js
 
 
