@@ -75,8 +75,24 @@ class Base:
         if cls.__name__ == "Rectangle":
             dummy_instance = cls(1, 1)
 
-        if cls.__name__ == "square":
+        if cls.__name__ == "Square":
             dummy_instance = cls(1)
 
         dummy_instance.update(**dictionary)
         return dummy_instance
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Class method that loads string from file and deserializes it.
+
+        returns:
+            a list of instances:
+        """
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, "r", encoding="utf-8") as f:
+                return [cls.create(**i)
+                        for i in cls.from_json_string(f.read())]
+        except FileNotFoundError:
+            return []
