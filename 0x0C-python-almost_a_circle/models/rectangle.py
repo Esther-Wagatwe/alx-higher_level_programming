@@ -65,3 +65,11 @@ class Rectangle(Base):
             raise ValueError("{} must be >= 0".format(attribute))
         elif not eq and value <= 0:
             raise ValueError("{} must be > 0".format(attribute))
+
+    def area(self):
+        """
+        Method that calculates the area of a rectangle.
+
+        returns: the area.
+        """
+        return self.width * self.height
