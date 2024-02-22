@@ -36,7 +36,7 @@ class Base:
         """
         Method that writes the JSON string repr of list_objs to a file.
         Args:
-            cls (cls): The name of the class
+            cls (class): The name of the class
             list_objs (list): list of instances who inherits of Base.
         """
         filename = cls.__name__ + ".json"
@@ -61,3 +61,22 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Args:
+            cls (class): The name of the class.
+            dictionary (dict): a double pointer to a dictionary.
+
+        returns:
+            an instance with all attributes already set
+        """
+        if cls.__name__ == "Rectangle":
+            dummy_instance = cls(1, 1)
+
+        if cls.__name__ == "square":
+            dummy_instance = cls(1)
+
+        dummy_instance.update(**dictionary)
+        return dummy_instance
