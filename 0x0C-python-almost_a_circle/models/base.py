@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines a class that will be the base of all other classes."""
 import json
+import csv
 
 
 class Base:
@@ -96,3 +97,43 @@ class Base:
                         for i in cls.from_json_string(f.read())]
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        serializes in CSV.
+        """
+        filename = cls.__name__ + ".json"
+        content = []
+        for i in range(len(list_objs)):
+            content.append(cls.to_dictionary(list_objs[i]))
+        with open(filename, 'w') as f:
+            if cls.__name__ == "Rectangle":
+                columns = ['id', 'width', 'height', 'x', 'y']
+            if cls.__name__ == "Square":
+                columns = ['id', 'size', 'x', 'y']
+            writer = csv.DictWriter(f, fieldnames=columns)
+            writer.writeheader()
+            writer.writerows(content)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserialise in csv.
+        """
+        filename = cls.__name__ + ".json"
+        mylist = []
+        try:
+            with open(filename, "r") as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    for key in row:
+                        row[key] = int(row[key])
+                    mylist.append(row)
+                instances_list = []
+                for i in range(len(mylist)):
+                    instances_list.append(cls.create(**mylist[i]))
+        except:
+            instances_list = []
+
+        return instances_list
