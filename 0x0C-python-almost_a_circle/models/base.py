@@ -133,7 +133,39 @@ class Base:
                 instances_list = []
                 for i in range(len(mylist)):
                     instances_list.append(cls.create(**mylist[i]))
-        except:
+        except IOError:
             instances_list = []
 
         return instances_list
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draw Rectangles and Squares using the turtle module.
+
+        Args:
+            list_rectangles (list): A list of Rectangle objects to draw.
+            list_squares (list): A list of Square objects to draw.
+        """
+        import turtle
+        from random import randrange
+        import time
+
+        turtle.Screen().colormode(255)
+        for i in list_rectangles + list_squares:
+            tur = turtle.Turtle()
+            tur.color((randrange(255), randrange(255), randrange(255)))
+            tur.pensize(1)
+            tur.penup()
+            tur.pendown()
+            tur.setpos((i.x + tur.pos()[0], i.y - tur.pos()[1]))
+            tur.pensize(10)
+            tur.forward(i.width)
+            tur.left(90)
+            tur.forward(i.height)
+            tur.left(90)
+            tur.forward(i.width)
+            tur.left(90)
+            tur.forward(i.height)
+            tur.left(90)
+            tur.end_fill()
+        time.sleep(5)
