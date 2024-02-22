@@ -98,3 +98,23 @@ Represents a square. Inherits from `Rectangle` with:
   * `**kwargs` is expected to be a double pointer to a dictoinary of new key/value attributes to update the `Square` with.
   * `**kwargs` is skipped if `*args` exists.
 * Public method `def to_dictionary(self):` that returns the dictionary representation of a `Square`.
+
+###Some helpful info
+* `to_json_string(list_dictionaries)` - static method.
+Purpose: Converts a list of dictionaries into a JSON-formatted string.
+Use Case: When you have a list of instances (objects) represented as dictionaries, you can use this method to convert them into a string that follows the JSON format. JSON is a widely used data interchange format.
+
+* `save_to_file(cls, list_objs)` - class method.
+Purpose: Saves a list of instances to a file in JSON format.
+Use Case: When you want to persistently store a list of objects (instances) for future use or to share with others, you can use this method. It converts the instances to a JSON-formatted string and writes it to a file.
+
+* `from_json_string(json_string)` - static method.
+Purpose: Converts a JSON-formatted string into a list of dictionaries.
+Use Case: When you have a JSON-formatted string that represents a list of instances, you can use this method to convert it back into a format that can be used to recreate the instances.
+* `create(cls, **dictionary)` - class method
+Purpose: Creates an instance with attributes set based on a dictionary.
+Use Case: When you have a dictionary representing the attributes of an object, you can use this method to create a new instance of the class and set its attributes accordingly.
+
+* `load_from_file(cls)` - class method
+Purpose: Loads instances from a file.
+Use Case: When you have previously saved instances in a file using save_to_file, this method helps you read the file, convert the content back to instances, and return a list of those instances.
