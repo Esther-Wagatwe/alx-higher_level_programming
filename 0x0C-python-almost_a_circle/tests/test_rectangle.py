@@ -42,6 +42,9 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             rectangle = Rectangle(1, 2, "3")
 
+        with self.assertRaises(TypeError, msg="width must be an integer"):
+            rectangle = Rectangle("1", 2)
+
         with self.assertRaisesRegex(TypeError, "height must be an integer"):
             rectangle = Rectangle(1, "2")
 
