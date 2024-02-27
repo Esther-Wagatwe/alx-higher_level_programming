@@ -121,7 +121,7 @@ class Base:
         """
         Deserialise in csv.
         """
-        filename = cls.__name__ + ".json"
+        filename = cls.__name__ + ".csv"
         mylist = []
         try:
             with open(filename, "r") as f:
