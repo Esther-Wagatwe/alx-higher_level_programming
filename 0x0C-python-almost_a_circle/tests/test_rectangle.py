@@ -51,6 +51,12 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError, msg="y must be an integer"):
             rectangle = Rectangle(1, 2, 3, "4")
 
+        with self.assertRaises(ValueError, msg="width must be > 0"):
+            rectangle = Rectangle(-1, 2)
+
+        with self.assertRaises(ValueError, msg="height must be > 0"):
+            rectangle = Rectangle(1, 0)
+
     def test_errors(self):
         """checks invalid attributes"""
         Base._Base__nb_objects = 0
