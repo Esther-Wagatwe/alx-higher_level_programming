@@ -103,10 +103,10 @@ class Base:
         """
         serializes in CSV.
         """
-        filename = cls.__name__ + ".json"
+        filename = cls.__name__ + ".csv"
         content = []
-        for i in range(len(list_objs)):
-            content.append(cls.to_dictionary(list_objs[i]))
+        for i in list_objs:
+            content.append(cls.to_dictionary(i))
         with open(filename, 'w') as f:
             if cls.__name__ == "Rectangle":
                 columns = ['id', 'width', 'height', 'x', 'y']
