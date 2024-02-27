@@ -37,6 +37,17 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle_instance.x, 0)
         self.assertEqual(rectangle_instance.y, 0)
 
+    def test_invalid_input(self):
+        """Checks invalid input."""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            rectangle = Rectangle(1, 2, "3")
+
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            rectangle = Rectangle(1, "2")
+
+        with self.assertRaises(TypeError, msg="y must be an integer"):
+            rectangle = Rectangle(1, 2, 3, "4")
+
     def test_errors(self):
         """checks invalid attributes"""
         Base._Base__nb_objects = 0
