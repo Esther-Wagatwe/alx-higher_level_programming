@@ -1,6 +1,7 @@
 # Javascript - Objects, Scopes and Closures
 
 ## Learning Objectives
+In this project I learnt:
 * Why JavaScript programming is amazing
 * How to create an object in JavaScript
 * What this means
@@ -66,3 +67,6 @@
 * **10. Number conversion**
   * [10-converter.js](./10-converter.js): JavaScript function that converts a number
   from base 10 to another base passed as argument.
+## Author
+* Esther Wagatwe
+* Email -> estherwagatwe@gmail.com
