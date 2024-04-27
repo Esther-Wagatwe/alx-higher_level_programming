@@ -1,4 +1,4 @@
-#!/bin/usr/python3
+#!/usr/bin/python3
 """define a class State and an instance Base = declarative_base()."""
 
 from sqlalchemy import Column, Integer, String
