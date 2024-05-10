@@ -5,7 +5,7 @@ import urllib.request
 import sys
 
 
-if "__name__" == "__main__":
+if __name__ == "__main__":
     """Perform a GET request that retrieves X-Request-Id header value."""
     url = sys.argv[1]
     req = urllib.request.Request(url)
