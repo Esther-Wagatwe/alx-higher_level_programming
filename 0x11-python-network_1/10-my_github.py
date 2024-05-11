@@ -1,4 +1,4 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 """
 Takes your GitHub credentials (username and password)
 Uses the GitHub API to display your id.
@@ -15,4 +15,4 @@ if __name__ == "__main__":
 
     authentication = requests.auth.HTTPBasicAuth(username, password)
     response = requests.get(url, auth=authentication)
-    print(response.json.get("id"))
+    print(response.json().get("id"))
