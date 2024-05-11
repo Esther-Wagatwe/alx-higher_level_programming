@@ -10,8 +10,8 @@ import sys
 if __name__ == "__main__":
     """Perform a GET operation."""
     repo_name = sys.argv[1]
-    owner_name = sys.argv[2]
-    url = "https://api.github.com/repos/{}/{}/commits".format(owner_name, repo_name)
+    owner = sys.argv[2]
+    url = "https://api.github.com/repos/{}/{}/commits".format(owner, repo_name)
     response = requests.get(url)
     response_json = response.json()
 
