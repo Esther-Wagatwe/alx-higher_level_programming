@@ -12,7 +12,7 @@ if __name__ == "__main__":
     """Perform a POST request."""
     url = "http://0.0.0.0:5000/search_user"
     if len(sys.argv) == 2:
-         response = requests.post(url, data={'q': sys.argv[1]})
+        response = requests.post(url, data={'q': sys.argv[1]})
     else:
         response = requests.post(url, data={'q': ""})
 
