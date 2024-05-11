@@ -11,7 +11,6 @@ import requests
 if __name__ == "__main__":
     """Send a POST request."""
     url = sys.argv[1]
-    email = sys.argv[2]
-    value = {"email": email}
-    response = requests.post(url, data=email)
+    value = {"email": sys.argv[2]}
+    response = requests.post(url, data=value)
     print(response.text)
